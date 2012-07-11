@@ -1,20 +1,24 @@
 SampleApp::Application.routes.draw do
-  get "relationships/create"
 
-  get "relationships/destroy"
+  get "posts/show"
 
-  get "microposts/create"
+  get "posts/new"
 
-  get "microposts/destroy"
+  get "posts/create"
 
+  get "posts/edit"
+
+  get "posts/update"
+
+  get "posts/destroy"
+
+  resources :posts
   resources :users do
     member do
       get :following, :followers
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
 
   root to: 'static_pages#home'
   match '/signup',  to: 'users#new'

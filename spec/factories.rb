@@ -10,8 +10,13 @@ FactoryGirl.define do
     end
   end
 
-  factory :micropost do
+  factory :post do
+    title "Lorem ipsum"
     content "Lorem ipsum"
     user
+  end
+
+  factory :category do
+    name "uncategorized"
   end
 end
