@@ -1,18 +1,8 @@
 SampleApp::Application.routes.draw do
 
-  get "posts/show"
-
-  get "posts/new"
-
-  get "posts/create"
-
-  get "posts/edit"
-
-  get "posts/update"
-
-  get "posts/destroy"
 
   resources :posts
+  resources :categories
   resources :users do
     member do
       get :following, :followers

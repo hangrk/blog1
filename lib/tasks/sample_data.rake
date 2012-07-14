@@ -32,7 +32,7 @@ def make_posts
   users = User.all(limit: 6)
   c = Category.first
   3.times do
-    content = Faker::Lorem.sentence(20)
+    content = Faker::Lorem.sentence(100)
     title = Faker::Lorem.sentence(3)
     users.each { |user| user.posts.create!(title: title, content: content, category_id: c.id) }
   end

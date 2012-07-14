@@ -1,0 +1,14 @@
+<section>
+	<h1 class="post-title"><%= link_to post.title, post %></h1>
+	<div class="post-info">
+		<%= post.created_at.strftime("%d %b %y") %> /
+		<%= link_to post.user.name, post.user %> posted in 
+		<%= link_to post.category.name, post.category %> / 
+		0 views 
+		<% if signed_in? %>
+		 [ <%= link_to "edit", edit_post_path(post) %>
+		 <%= link_to "delete", post, method: :delete, data: { confirm: "You sure?" } %> ]
+		<% end %>
+	</div>
+	<div class="post-content"><%= post.content %></div>
+</section>

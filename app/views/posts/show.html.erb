@@ -1,13 +1,1 @@
-<section>
-	<h1><%= @post.title %></h1>
-	<div class="post-info">
-		<span class="timestamp">
-		<%= @post.created_at.strftime("%d %b %y") %> /
-		<%= link_to @post.user.name, @post.user %> posted in 
-		<%= @post.category.name %> / 
-		views: 0
-
-		</span>
-	</div>
-	<span class="post-content"><%= @post.content %></span>
-</section>
+<%= render @post %>

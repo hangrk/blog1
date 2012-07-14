@@ -47,12 +47,22 @@ describe Post do
   end
 
   describe "when title is not present" do
-    before { @post.title = nil }
+    before { @post.title = " " }
     it { should_not be_valid }
   end
 
   describe "when content is not present" do
-    before { @post.content = nil }
+    before { @post.content = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when category is not present" do
+    before { @post.category_id = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when category does not exist" do
+    before { @post.category_id = 5 }
     it { should_not be_valid }
   end
 end

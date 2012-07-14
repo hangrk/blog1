@@ -130,11 +130,12 @@ describe User do
   describe "post associations" do
 
     before { @user.save }
+    let(:category) { FactoryGirl.create(:category) }
     let!(:older_post) do 
-      FactoryGirl.create(:post, user: @user, created_at: 1.day.ago)
+      FactoryGirl.create(:post, user: @user, category_id: category.id, created_at: 1.day.ago)
     end
     let!(:newer_post) do
-      FactoryGirl.create(:post, user: @user, created_at: 1.hour.ago)
+      FactoryGirl.create(:post, user: @user, category_id: category.id, created_at: 1.hour.ago)
     end
 
     it "should have the right posts in the right order" do

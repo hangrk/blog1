@@ -20,6 +20,7 @@ class Post < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true
   validates :content, presence: true
+  validates_presence_of :category
 
   default_scope order: 'posts.created_at DESC'
 end
